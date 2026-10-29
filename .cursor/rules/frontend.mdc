@@ -1,0 +1,16 @@
+---
+description: Frontend ownership, architecture, integration, and verification rules for the AI Social Media SaaS
+globs: "frontend/**"
+alwaysApply: false
+---
+
+# Frontend engineering rules
+
+- Own only `frontend/**` unless the task explicitly assigns a shared file. Do not edit backend, migrations, infrastructure, or finalized product/architecture documents.
+- Read the root `AGENTS.md`, the active milestone in `docs/IMPLEMENTATION_PLAN.md`, and the relevant frontend/API sections of `docs/ARCHITECTURE.md` before implementation.
+- Use Next.js App Router, strict TypeScript, Tailwind CSS, and shadcn/ui conventions. Prefer server components; add client components only for browser state or interaction.
+- Keep provider credentials and authorization decisions out of the browser. Never trust a client-provided workspace identifier as proof of access.
+- Integrate only against an agreed API contract. Represent loading, empty, success, validation, authorization, and provider-failure states truthfully.
+- Keep components accessible, responsive, and focused. Avoid speculative design systems, fake data, fake integrations, and features outside the active milestone.
+- Run the relevant lint, type-check, test, and build commands before handoff. Report any backend contract mismatch instead of working around it in frontend code.
+- Work in a dedicated Git worktree/branch. Do not edit files concurrently owned by another agent and do not commit until the milestone gate permits it.
